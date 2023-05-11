@@ -18,7 +18,7 @@ This work was conducted independently by academic researchers with no outside fu
 
 Stable Diffusion is an open-source, state-of-the-art, image-generation AI system. Among other things, Stable Diffusion is known to generate images imitating the style of specific human artists, leading to concerns about copyright. Here, we show that whether or not Stable Diffusion has successfully copied an artist's style does not have to be a matter of subjective human assessment. We use Stable Diffusion and data encoders that were used to train it to show that when it generates an image meant to mimic an artist’s style, the artist can be classified from the image. This way, we can evaluate whether the model “believes” that it has succeeded in copying a specific artist’s style.
 
-**TL;DR: We compiled a set of 62 professional digital artists, each with a large amount of copyrighted work online. We found that when Stable Diffusion is prompted to imitate the artists, the artists were classified from the image successfully an average of 52/62 times (82.74%) and at best 58/62 times (93.54%).**
+**TL;DR: We compiled a set of 62 professional digital artists, each with a large amount of copyrighted work online. We found that when Stable Diffusion is prompted to imitate the artists, the artists could be classified from the image successfully an average of 52/62 times (82.74%) and at best 58/62 times (93.54%).**
 
 See our interactive code notebook here. [![sc_cc -- colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Vj2PrCTja8fxsTqpgEnk5jYvK4EFyut6#scrollTo=p-z7_LgL6Ami)
 
