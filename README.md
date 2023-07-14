@@ -1,51 +1,27 @@
 # Stable Diffusion Objectively Succeeds at Copycatting Specific Artists’ Styles
 
-Carl Guo,* MIT, [carlguo@mit.edu](carlguo@mit.edu) 
-
-Shreya Mogulothu,* MIT, [smog@mit.edu](smog@mit.edu) 
-
-Chinmay Deshpande,* Harvard, [cdeshpande@college.harvard.edu](cdeshpande@college.harvard.edu)
-
-Zachary Marinov,* MIT, [zmarinov@mit.edu](zmarinov@mit.edu)
-
 Stephen Casper,* MIT, [scasper@mit.edu](scasper@mit.edu)
 
-*Equal contribution among all authors
+Carl Guo,* MIT, [carlguo@mit.edu](carlguo@mit.edu) 
 
-This work was conducted independently by academic researchers with no outside funding or influence. 
+Shreya Mogulothu, MIT
 
-## Overview
+Chinmay Deshpande, Harvard
 
-Stable Diffusion is an open-source, state-of-the-art, image-generation AI system. Among other things, Stable Diffusion is known to generate images imitating the style of specific human artists, leading to concerns about copyright. Here, we show that whether or not Stable Diffusion has successfully copied an artist's style does not have to be a matter of subjective human assessment. We use Stable Diffusion and data encoders that were used to train it to show that when it generates an image meant to mimic an artist’s style, the artist can be classified from the image. This way, we can evaluate whether the model “believes” that it has succeeded in copying a specific artist’s style.
+Zachary Marinov, MIT
 
-**TL;DR: We compiled a set of 62 professional digital artists, each with a large amount of copyrighted work online. We found that when Stable Diffusion is prompted to imitate the artists, the artists could be classified from the image successfully an average of 52/62 times (82.74%) and at best 58/62 times (93.54%).**
+Rui-Jie Yew, MIT/Brown
 
-See our interactive code notebook here. [![sc_cc -- colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Vj2PrCTja8fxsTqpgEnk5jYvK4EFyut6#scrollTo=p-z7_LgL6Ami)
+Zheng Dai, MIT
 
-## Background
+Dylan Hadfield-Menell, MIT
 
-Stable Diffusion is an image generation AI system built using existing text and image encoders known as contrastive language-image pretraining (CLIP) networks. These CLIP networks encode text and image inputs into vector encodings which contain information about them. Generally, the more geometrically distant two images’ or captions’ encodings are, the less related they are, and vice versa. The original CLIP encoders can be used to classify an image given a set of labels based on the distance of these encodings. 
+---
 
-Stable Diffusion is the reverse of an encoder. When given an encoding of a caption, it generates an image that resembles the image that corresponds to that point in the encoding space. Accordingly, we can see the CLIP image encoder as an “inverse Stable Diffusion.”  We can use CLIP to map a Stable-Diffusion-generated image back into the encoding space, in order to see what the original caption the image corresponds to, or informally what “Stable Diffusion/CLIP would describe the image as.”
+Repository update -- July 2023:
 
-## Experiments
+See the paper [here](https://arxiv.org/abs/2307.04028), which has now been accepted to the GenLaw, 2023 workshop.
 
-We chose 62 artists from the [LAION-aesthetics dataset](http://laion-aesthetic.datasette.io/), the dataset that Stable Diffusion was trained on. We selected these 62 using through 3 criteria: (1) The artist is alive, publishes artworks, and makes a living off of their artworks. (2) The artist has more than 200 images in the LAION dataset. (3) The artist is either popular on digital art platforms or identified in a copyright lawsuit.
+See our interactive code notebook [here]([https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Vj2PrCTja8fxsTqpgEnk5jYvK4EFyut6#scrollTo=p-z7_LgL6Ami](https://colab.research.google.com/drive/1ScHo9uMdUgId0DlSr4W4RgnMD44dLiku?usp=sharing)https://colab.research.google.com/drive/1ScHo9uMdUgId0DlSr4W4RgnMD44dLiku?usp=sharing)
 
-We prompted Stable Diffusion to generate three images in the style of each artist, using the prompt “Artwork from [artist’s name]”. We then used CLIP to classify which of the 62 artists’ names was most likely to be paired with the image. CLIP produces a probability of the image matching each and every artist, and we evaluate the model on both the Top 1 and Top 3 artists with the highest probabilities.
-
-Example images from one run of the experiment are shown below.
-
-We repeated the experiment with the 62 artists 10 times to reduce the effect of random variation. On average, CLIP correctly classified 52 of the 62 generated images (82.74%) as works made by the artists whose names we used to generate them. Out of the 10 times, the experiment at best predicted 58 of the 62 generated images (93.54%) correctly. Additionally, for 3 of the 4 images for which the artist was not the top guess, it was in the top 3 guesses. Finally, out of the 10 repeats of the experiment, 100% of the artists were correctly classified by the top-1 prediction at least once. 
-
-We also ran the experiment with a larger set of artists that include both live and deceased artists and find similar results. We selected the 250 artists with the most images in the LAION dataset. CLIP correctly classified 81.19% of the images, with a top-3 accuracy of 91.60%. 
-
-Meanwhile, guessing by chance would result in a successful classification of only 1 out of 62 images (1.61%) on average, and when we ran the same experiment but with 62 random names generated from [here](https://randomwordgenerator.com/name.php), only 7 (11.29%) were guessed correctly.
-
-## Conclusion
-
-If a human looks at an artist’s work and an image generated by Stable Diffusion side by side, their similarity is a subjective matter. But here, we show that determining when an artist’s style has been copied can be done objectively and successfully. These experiments definitely show that Stable Diffusion has precise internal knowledge of exactly the artists it copies, as Stable Diffision’s own image and text encoders agree the images are successful copies. 
-
-## Images
-
-![examples_images](sd_62_artists.png)
+![sd_imitation.png]
