@@ -22,6 +22,6 @@ Repository update -- July 2023:
 
 See the paper [here](https://genlaw.github.io/CameraReady/49.pdf), which has now been accepted to the GenLaw, 2023 workshop.
 
-See our interactive code notebook [here](https://colab.research.google.com/drive/1ScHo9uMdUgId0DlSr4W4RgnMD44dLiku?usp=sharing)
+See our interactive code notebook [here](https://colab.research.google.com/drive/1ScHo9uMdUgId0DlSr4W4RgnMD44dLiku?usp=sharing) or download it from here in the repository :)
 
 ![artist imitations](sd_imitation.png)
